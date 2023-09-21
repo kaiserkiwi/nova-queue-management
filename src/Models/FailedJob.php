@@ -1,6 +1,6 @@
 <?php
 
-namespace Den1n\NovaQueues\Models;
+namespace Kaiserkiwi\NovaQueues\Models;
 
 class FailedJob extends \Illuminate\Database\Eloquent\Model
 {
@@ -16,10 +16,7 @@ class FailedJob extends \Illuminate\Database\Eloquent\Model
 
 	protected $casts = [
 		'payload' => 'array',
-	];
-
-	protected $dates = [
-		'failed_at',
+		'failed_at' => 'datetime',
 	];
 
 	public $timestamps = false;
