@@ -12,27 +12,27 @@ use Laravel\Nova\Fields\ActionFields;
 
 class Retry extends Action
 {
-    use InteractsWithQueue, Queueable, SerializesModels;
+	use InteractsWithQueue, Queueable, SerializesModels;
 
-    /**
-     * Get the displayable name of the action.
-     */
-    public function name(): string
-    {
-        return __('Retry');
-    }
+	/**
+	 * Get the displayable name of the action.
+	 */
+	public function name(): string
+	{
+		return __('Retry');
+	}
 
-    /**
-     * Perform the action on the given models.
-     */
-    public function handle(ActionFields $fields, Collection $models): void
-    {
-        $usesUuid = config('queue.failed.driver') === 'database-uuids';
+	/**
+	 * Perform the action on the given models.
+	 */
+	public function handle(ActionFields $fields, Collection $models): void
+	{
+		$usesUuid = config('queue.failed.driver') === 'database-uuids';
 
-        foreach ($models as $model) {
-            Artisan::call('queue:retry', [
-                'id' => [$usesUuid ? $model->uuid : $model->id],
-            ]);
-        }
-    }
+		foreach ($models as $model) {
+			Artisan::call('queue:retry', [
+				'id' => [$usesUuid ? $model->uuid : $model->id],
+			]);
+		}
+	}
 }
