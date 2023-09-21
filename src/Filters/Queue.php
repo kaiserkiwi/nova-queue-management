@@ -1,6 +1,6 @@
 <?php
 
-namespace Den1n\NovaQueues\Filters;
+namespace Kaiserkiwi\NovaQueueManagement\Filters;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
@@ -41,7 +41,7 @@ class Queue extends \Laravel\Nova\Filters\Filter
 	 */
 	public function options(Request $request): array
 	{
-		return config('nova-queues.models')[$this->modelName]::orderBy('queue')
+		return config('nova-queue-management.models')[$this->modelName]::orderBy('queue')
 			->pluck('queue', 'queue')
 			->toArray();
 	}

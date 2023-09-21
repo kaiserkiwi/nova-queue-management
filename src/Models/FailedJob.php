@@ -1,6 +1,6 @@
 <?php
 
-namespace Kaiserkiwi\NovaQueues\Models;
+namespace Kaiserkiwi\NovaQueueManagement\Models;
 
 class FailedJob extends \Illuminate\Database\Eloquent\Model
 {
@@ -38,7 +38,7 @@ class FailedJob extends \Illuminate\Database\Eloquent\Model
 	 */
 	public function getTable(): string
 	{
-		return config('nova-queues.tables.failed_jobs', parent::getTable());
+		return config('nova-queue-management.tables.failed_jobs', parent::getTable());
 	}
 
 	/**

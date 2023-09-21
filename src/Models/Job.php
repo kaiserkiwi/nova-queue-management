@@ -1,6 +1,6 @@
 <?php
 
-namespace Den1n\NovaQueues\Models;
+namespace Kaiserkiwi\NovaQueueManagement\Models;
 
 use Illuminate\Http\Request;
 
@@ -41,7 +41,7 @@ class Job extends \Illuminate\Database\Eloquent\Model
 	 */
 	public function getTable(): string
 	{
-		return config('nova-queues.tables.jobs', parent::getTable());
+		return config('nova-queue-management.tables.jobs', parent::getTable());
 	}
 
 	/**
