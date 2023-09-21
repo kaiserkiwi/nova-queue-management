@@ -56,16 +56,16 @@ public function tools()
 
 ### Jobs
 
-![Jobs](https://raw.githubusercontent.com/kaiserkiwi/nova-queue-management/master/screens/jobs.png)
+![Jobs](https://raw.githubusercontent.com/kaiserkiwi/nova-queue-management/main/screens/jobs.png)
 
 ### Job Details
 
-![Job Details](https://raw.githubusercontent.com/kaiserkiwi/nova-queue-management/master/screens/job-details.png)
+![Job Details](https://raw.githubusercontent.com/kaiserkiwi/nova-queue-management/main/screens/job-details.png)
 
 
 ### Failed Jobs
 
-![Job Details](https://raw.githubusercontent.com/kaiserkiwi/nova-queue-management/master/screens/failed-jobs.png)
+![Job Details](https://raw.githubusercontent.com/kaiserkiwi/nova-queue-management/main/screens/failed-jobs.png)
 
 ## Contributing
 
