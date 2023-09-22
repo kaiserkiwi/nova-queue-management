@@ -4,6 +4,7 @@ Simple resource for Laravel Nova to manage jobs from Laravel.
 
 **Supports only the `database` queue driver.**
 
+> This is the successor of the now abandoned [den1n/nova-queues](https://github.com/den1n/nova-queues) package. If you are using the old package, please remove it before installing this one. You only need the new package if you are using Laravel 10 or higher as the failed jobs model was incompatible with Laravel 10.
 ## Installation
 
 Install package with Composer.
@@ -36,7 +37,8 @@ Migrate database.
 php artisan migrate
 ```
 
-Add instance of class `Kaiserkiwi\NovaQueueManagement\Tool` to your `App\Providers\NovaServiceProvider::tools()` method to display the jobs within your Nova resources.
+Add instance of class `Kaiserkiwi\NovaQueueManagement\Tool` to your `App\Providers\NovaServiceProvider::tools()` method to display the jobs within your Nova resources.  
+**If you come from den1n/nova-queues you have to remove the previous reference.**
 
 ```php
 /**
