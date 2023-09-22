@@ -1,6 +1,6 @@
 <?php
 
-namespace Den1n\NovaQueues\Filters;
+namespace Kaiserkiwi\NovaQueueManagement\Filters;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
@@ -28,7 +28,7 @@ class Connection extends \Laravel\Nova\Filters\Filter
 	 */
 	public function options(Request $request): array
 	{
-		return config('nova-queues.models.failed_job')::orderBy('connection')
+		return config('nova-queue-management.models.failed_job')::orderBy('connection')
 			->pluck('connection', 'connection')
 			->toArray();
 	}

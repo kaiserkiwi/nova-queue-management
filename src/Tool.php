@@ -1,31 +1,31 @@
 <?php
 
-namespace Den1n\NovaQueues;
+namespace Kaiserkiwi\NovaQueueManagement;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Nova;
 
 class Tool extends \Laravel\Nova\Tool
 {
-    public function menu(Request $request)
-    {
-        return [];
-    }
+	public function menu(Request $request)
+	{
+		return [];
+	}
 
-    /**
-     * Perform any tasks that need to happen when the tool is booted.
-     */
-    public function boot(): void
-    {
-        $jobs = config('nova-queues.resources.job');
-        $failedJobs = config('nova-queues.resources.failed_job');
+	/**
+	 * Perform any tasks that need to happen when the tool is booted.
+	 */
+	public function boot(): void
+	{
+		$jobs = config('nova-queue-management.resources.job');
+		$failedJobs = config('nova-queue-management.resources.failed_job');
 
-        $jobs::$model = config('nova-queues.models.job');
-        $failedJobs::$model = config('nova-queues.models.failed_job');
+		$jobs::$model = config('nova-queue-management.models.job');
+		$failedJobs::$model = config('nova-queue-management.models.failed_job');
 
-        Nova::resources([
-            $jobs,
-            $failedJobs,
-        ]);
-    }
+		Nova::resources([
+			$jobs,
+			$failedJobs,
+		]);
+	}
 }

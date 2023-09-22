@@ -1,28 +1,28 @@
-# nova-queues
+# Nova Queue Management for Laravel Nova 4
 
-Queue resource for Laravel Nova.
+Simple resource for Laravel Nova to manage jobs from Laravel.
 
-Supports only the `database` queue driver.
+**Supports only the `database` queue driver.**
 
 ## Installation
 
 Install package with Composer.
 
 ```sh
-composer require den1n/nova-queues
+composer require kaiserkiwi/nova-queue-management
 ```
 
 Publish package resources.
 
 ```sh
-php artisan vendor:publish --provider=Den1n\NovaQueues\ServiceProvider
+php artisan vendor:publish --provider=Kaiserkiwi\NovaQueueManagement\ServiceProvider
 ```
 
 This will publish the following resources:
 
-* Configuration file `config/nova-queues.php`.
-* Translations `resources/lang/vendor/nova-queues`.
-* Views `resources/views/vendor/nova-queues`.
+* Configuration file `config/nova-queue-management.php`.
+* Translations `resources/lang/vendor/nova-queue-management`.
+* Views `resources/views/vendor/nova-queue-management`.
 
 Create database queue table if it's not exists.
 
@@ -36,7 +36,7 @@ Migrate database.
 php artisan migrate
 ```
 
-Add instance of class `Den1n\NovaQueues\Tool` to your `App\Providers\NovaServiceProvider::tools()` method to display the jobs within your Nova resources.
+Add instance of class `Kaiserkiwi\NovaQueueManagement\Tool` to your `App\Providers\NovaServiceProvider::tools()` method to display the jobs within your Nova resources.
 
 ```php
 /**
@@ -47,7 +47,7 @@ Add instance of class `Den1n\NovaQueues\Tool` to your `App\Providers\NovaService
 public function tools()
 {
     return [
-        new \Den1n\NovaQueues\Tool,
+        new \Kaiserkiwi\NovaQueueManagement\Tool,
     ];
 }
 ```
@@ -56,11 +56,16 @@ public function tools()
 
 ### Jobs
 
-![Jobs](https://raw.githubusercontent.com/den1n/nova-queues/master/screens/jobs.png)
+![Jobs](https://raw.githubusercontent.com/kaiserkiwi/nova-queue-management/main/screens/jobs.png)
 
 ### Job Details
 
-![Job Details](https://raw.githubusercontent.com/den1n/nova-queues/master/screens/job-details.png)
+![Job Details](https://raw.githubusercontent.com/kaiserkiwi/nova-queue-management/main/screens/job-details.png)
+
+
+### Failed Jobs
+
+![Job Details](https://raw.githubusercontent.com/kaiserkiwi/nova-queue-management/main/screens/failed-jobs.png)
 
 ## Contributing
 
