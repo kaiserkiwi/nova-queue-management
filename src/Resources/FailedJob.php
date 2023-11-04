@@ -63,6 +63,16 @@ class FailedJob extends Resource
 	}
 
 	/**
+	 * Show menu item with badge if enabled in config.
+	 */
+	public function menu(Request $request)
+	{
+		return config('nova-queue-management.show_count_badge.failed_job', true)
+			? parent::menu($request)->withBadge(fn() => static::$model::count())
+			: parent::menu($request);
+	}
+
+	/**
 	 * Get the fields displayed by the resource.
 	 */
 	public function fields(Request $request): array

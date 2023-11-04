@@ -50,4 +50,11 @@ return [
 		'failed_job' => false,
 	],
 
+	/**
+	 * Allows to show a badge with the number of jobs and failed jobs in the navigation bar.
+	 */
+	'show_count_badge' => [
+		'job' => true,
+		'failed_job' => true,
+	]
 ];
