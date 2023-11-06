@@ -56,5 +56,14 @@ return [
 	'show_count_badge' => [
 		'job' => true,
 		'failed_job' => true,
-	]
+	],
+
+	/**
+	 * Sets the number of jobs and failed jobs to show the badge in the navigation bar, when a certain threshold is reached.
+	 * 0 = Always show the badge.
+	 */
+	'count_badge_threshold' => [
+		'job' => 0,
+		'failed_job' => 0,
+	],
 ];

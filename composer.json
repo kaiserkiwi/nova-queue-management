@@ -3,14 +3,14 @@
 	"description": "Queues resource for Laravel Nova. Based on the abandoned package by den1n.",
 	"homepage": "https://github.com/kaiserkiwi/nova-queue-management",
 	"license": "MIT",
-	"keywords": ["kaiserkiwi", "laravel", "nova", "queues"],
+	"keywords": ["kaiserkiwi", "laravel", "nova", "queues", "jobs"],
 	"authors": [{
-			"name": "Dmitry Kadochnikov",
-			"email": "iqmass@gmail.com"
-		},
-		{
 			"name": "Marco Kaiser",
 			"email": "marco@kaiser.kiwi"
+		},
+		{
+			"name": "Dmitry Kadochnikov",
+			"email": "iqmass@gmail.com"
 		}],
 	"require": {
 		"php": "^8.0",

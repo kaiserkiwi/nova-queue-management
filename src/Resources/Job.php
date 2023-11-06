@@ -65,13 +65,15 @@ class Job extends Resource
 	}
 
 	/**
-	 * Show menu item with badge if enabled in config.
+	 * Show menu item with badge if enabled in config and the optional threshold is reached
 	 */
 	public function menu(Request $request)
 	{
-		return config('nova-queue-management.show_count_badge.job', true)
-			? parent::menu($request)->withBadge(fn() => static::$model::count())
-			: parent::menu($request);
+		if (config('nova-queue-management.show_count_badge.job', true) && static::$model::count() >= config('nova-queue-management.count_badge_threshold.job', 0)) {
+			return parent::menu($request)->withBadge(fn() => static::$model::count());
+		}
+
+		return parent::menu($request);
 	}
 
 	/**
