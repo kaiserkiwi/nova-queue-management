@@ -1,10 +1,11 @@
 # Nova Queue Management for Laravel Nova 4
 
-Simple resource for Laravel Nova to manage jobs from Laravel.
+A simple management of your pending or failed jobs directly in Laravel Nova. With the ability to rerun failed jobs directly from the Nova interface.
 
-**Supports only the `database` queue driver.**
+**To use this package you need to the `database` queue driver.**
 
-> This is the successor of the now abandoned [den1n/nova-queues](https://github.com/den1n/nova-queues) package. If you are using the old package, please remove it before installing this one. You only need the new package if you are using Laravel 10 or higher as the failed jobs model was incompatible with Laravel 10.
+> This is the successor of the now abandoned [den1n/nova-queues](https://github.com/den1n/nova-queues) package. If you are using the old package, please remove it before installing this one. You definitely need this new package if you are using Laravel 10 or higher as the failed jobs model was incompatible with Laravel 10. This package also adds some new features and improvements. 
+
 ## Installation
 
 Install package with Composer.
