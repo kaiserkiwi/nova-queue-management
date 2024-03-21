@@ -54,7 +54,7 @@ class FailedJob extends \Illuminate\Database\Eloquent\Model
 	 */
 	public function getMaxTriesAttribute(): ?int
 	{
-		return $this->payload['maxTries'];
+		return $this->payload['maxTries'] ?? null;
 	}
 
 	/**
