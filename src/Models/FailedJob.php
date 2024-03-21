@@ -52,7 +52,7 @@ class FailedJob extends \Illuminate\Database\Eloquent\Model
 	/**
 	 * Get value of maxTries attribute.
 	 */
-	public function getMaxTriesAttribute(): int
+	public function getMaxTriesAttribute(): ?int
 	{
 		return $this->payload['maxTries'];
 	}
@@ -60,8 +60,8 @@ class FailedJob extends \Illuminate\Database\Eloquent\Model
 	/**
 	 * Get value of delay attribute.
 	 */
-	public function getDelayAttribute(): int
+	public function getDelayAttribute(): ?int
 	{
-		return $this->payload['delay'];
+		return $this->payload['delay'] ?? null;
 	}
 }
