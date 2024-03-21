@@ -2,7 +2,7 @@
 
 A simple management of your pending or failed jobs directly in Laravel Nova. With the ability to rerun failed jobs directly from the Nova interface.
 
-**To use this package you need to the `database` queue driver.**
+**To use this package you need to use the `database` queue driver.**
 
 > This is the successor of the now abandoned [den1n/nova-queues](https://github.com/den1n/nova-queues) package. If you are using the old package, please remove it before installing this one. You definitely need this new package if you are using Laravel 10 or higher as the failed jobs model was incompatible with Laravel 10. This package also adds some new features and improvements. 
 
@@ -17,16 +17,15 @@ composer require kaiserkiwi/nova-queue-management
 Publish package resources.
 
 ```sh
-php artisan vendor:publish --provider=Kaiserkiwi\NovaQueueManagement\ServiceProvider
+php artisan vendor:publish --provider='Kaiserkiwi\NovaQueueManagement\ServiceProvider'
 ```
 
 This will publish the following resources:
 
 * Configuration file `config/nova-queue-management.php`.
-* Translations `resources/lang/vendor/nova-queue-management`.
-* Views `resources/views/vendor/nova-queue-management`.
+* Translations `lang/vendor/nova-queue-management`.
 
-Create database queue table if it's not exists.
+Create database table `jobs` if it does not exist.
 
 ```sh
 php artisan queue:table
