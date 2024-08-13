@@ -15,5 +15,13 @@
     "Jobs": "Задачи",
     "Failed Job": "Неудачная задача",
     "Failed Jobs": "Неудачные задачи",
-    "Retry": "Повторить"
+    "Retry": "Повторить",
+	"Total Jobs": "Всего задач",
+	"Pending Jobs": "Задач в ожидании",
+	"Job Batches": "Группы задач",
+	"Job Batch": "Группа задач",
+	"Finished At": "Завершено в",
+	"Cancelled At": "Отменено в",
+	"Failed Job IDs": "ID неудачных задач",
+	"Options": "Параметры"
 }
