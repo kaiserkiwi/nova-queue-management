@@ -4,6 +4,8 @@ namespace Kaiserkiwi\NovaQueueManagement\Models;
 
 class JobBatch extends \Illuminate\Database\Eloquent\Model
 {
+	protected $keyType = 'string';
+
 	protected $guarded = [
 		'id',
 	];
@@ -13,6 +15,8 @@ class JobBatch extends \Illuminate\Database\Eloquent\Model
 	];
 
 	public $timestamps = false;
+
+	public $incrementing = false;
 
 	/**
 	 * The "booting" method of the model.
