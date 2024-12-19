@@ -18,13 +18,13 @@ class Tool extends \Laravel\Nova\Tool
 	 */
 	public function boot(): void
 	{
-		$jobs = config('nova-queue-management.resources.job');
-		$failedJobs = config('nova-queue-management.resources.failed_job');
-		$jobBatches = config('nova-queue-management.resources.job_batches');
+		$jobs = config('nova-queue-management.resources.job', Resources\Job::class);
+		$failedJobs = config('nova-queue-management.resources.failed_job', Resources\FailedJob::class);
+		$jobBatches = config('nova-queue-management.resources.job_batches', Resources\JobBatch::class);
 
-		$jobs::$model = config('nova-queue-management.models.job');
-		$failedJobs::$model = config('nova-queue-management.models.failed_job');
-		$jobBatches::$model = config('nova-queue-management.models.job_batches');
+		$jobs::$model = config('nova-queue-management.models.job', Models\Job::class);
+		$failedJobs::$model = config('nova-queue-management.models.failed_job', Models\FailedJob::class);
+		$jobBatches::$model = config('nova-queue-management.models.job_batches', Models\JobBatch::class);
 
 		$resources = [
 			$jobs,
