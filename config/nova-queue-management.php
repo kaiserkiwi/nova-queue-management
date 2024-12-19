@@ -9,6 +9,7 @@ return [
 	'models' => [
 		'job' => \Kaiserkiwi\NovaQueueManagement\Models\Job::class,
 		'failed_job' => \Kaiserkiwi\NovaQueueManagement\Models\FailedJob::class,
+		'job_batches' => \Kaiserkiwi\NovaQueueManagement\Models\JobBatch::class,
 	],
 
 	/**
@@ -18,6 +19,7 @@ return [
 	'resources' => [
 		'job' => \Kaiserkiwi\NovaQueueManagement\Resources\Job::class,
 		'failed_job' => \Kaiserkiwi\NovaQueueManagement\Resources\FailedJob::class,
+		'job_batches' => \Kaiserkiwi\NovaQueueManagement\Resources\JobBatch::class,
 	],
 
 	/**
@@ -27,6 +29,7 @@ return [
 	'tables' => [
 		'jobs' => 'jobs',
 		'failed_jobs' => 'failed_jobs',
+		'job_batches' => 'job_batches',
 	],
 
 	/**
@@ -48,6 +51,7 @@ return [
 	'can_create' => [
 		'job' => false,
 		'failed_job' => false,
+		'job_batches' => false,
 	],
 
 	/**
@@ -56,6 +60,7 @@ return [
 	'show_count_badge' => [
 		'job' => true,
 		'failed_job' => true,
+		'job_batches' => true,
 	],
 
 	/**
@@ -65,5 +70,6 @@ return [
 	'count_badge_threshold' => [
 		'job' => 0,
 		'failed_job' => 0,
+		'job_batches' => 0,
 	],
 ];

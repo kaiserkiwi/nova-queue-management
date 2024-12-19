@@ -19,13 +19,16 @@ class Tool extends \Laravel\Nova\Tool
 	{
 		$jobs = config('nova-queue-management.resources.job');
 		$failedJobs = config('nova-queue-management.resources.failed_job');
+		$jobBatches = config('nova-queue-management.resources.job_batches');
 
 		$jobs::$model = config('nova-queue-management.models.job');
 		$failedJobs::$model = config('nova-queue-management.models.failed_job');
+		$jobBatches::$model = config('nova-queue-management.models.job_batches');
 
 		Nova::resources([
 			$jobs,
 			$failedJobs,
+			$jobBatches,
 		]);
 	}
 }

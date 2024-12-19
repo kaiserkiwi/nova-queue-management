@@ -15,5 +15,13 @@
     "Jobs": "Jobs",
     "Failed Job": "Failed Job",
     "Failed Jobs": "Failed Jobs",
-    "Retry": "Retry"
+    "Retry": "Retry",
+	"Total Jobs": "Total Jobs",
+	"Pending Jobs": "Pending Jobs",
+	"Job Batches": "Job Batches",
+	"Job Batch": "Job Batch",
+	"Finished At": "Finished At",
+	"Cancelled At": "Cancelled At",
+	"Failed Job IDs": "Failed Job IDs",
+	"Options": "Options"
 }
