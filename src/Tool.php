@@ -3,6 +3,7 @@
 namespace Kaiserkiwi\NovaQueueManagement;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 use Laravel\Nova\Nova;
 
 class Tool extends \Laravel\Nova\Tool
@@ -25,10 +26,15 @@ class Tool extends \Laravel\Nova\Tool
 		$failedJobs::$model = config('nova-queue-management.models.failed_job');
 		$jobBatches::$model = config('nova-queue-management.models.job_batches');
 
-		Nova::resources([
+		$resources = [
 			$jobs,
 			$failedJobs,
-			$jobBatches,
-		]);
+		];
+
+		if (Schema::hasTable(config('nova-queue-management.tables.job_batches', 'job_batches'))) {
+			$resources[] = $jobBatches;
+		}
+
+		Nova::resources($resources);
 	}
 }
