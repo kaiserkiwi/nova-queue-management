@@ -1,4 +1,4 @@
-# Nova Queue Management for Laravel Nova 4
+# Nova Queue Management for Laravel Nova 4+
 
 A simple management of your pending or failed jobs directly in Laravel Nova. With the ability to rerun failed jobs directly from the Nova interface.
 
