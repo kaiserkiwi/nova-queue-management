@@ -167,7 +167,7 @@ class FailedJob extends Resource
 		return [
 			(new \Kaiserkiwi\NovaQueueManagement\Actions\Retry)->canRun(function ($request, $job) {
 				return config('nova-queue-management.overwrite_action_permission', false) || $request->user()->can('create', $job);
-			})->showOnTableRow(),
+			})->showInline(),
 		];
 	}
 
