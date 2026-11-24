@@ -105,7 +105,8 @@ class JobBatch extends Resource
 				->hideFromIndex(),
 
 			Code::make(__('Options'), 'options')->json()
-				->hideFromIndex(),
+				->hideFromIndex()
+				->exceptOnForms(),
 
 			DateTime::make(__('Cancelled At'), 'cancelled_at', function () {
 				if ($this->cancelled_at) {
