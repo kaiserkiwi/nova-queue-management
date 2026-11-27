@@ -2,6 +2,10 @@
 
 namespace Kaiserkiwi\NovaQueueManagement\Models;
 
+use Illuminate\Database\PostgresConnection;
+use Illuminate\Support\Str;
+use Throwable;
+
 class JobBatch extends \Illuminate\Database\Eloquent\Model
 {
 	protected $keyType = 'string';
@@ -40,18 +44,42 @@ class JobBatch extends \Illuminate\Database\Eloquent\Model
 	}
 
 	/**
-	 * Set value of options attribute.
+	 * Get value of options attribute.
+	 *
+	 * Laravel's DatabaseBatchRepository stores the options with serialize() and
+	 * base64-encodes them on PostgreSQL only. No class is instantiated while
+	 * reading them: callbacks are returned as their class name.
+	 *
+	 * @return array
 	 */
-	public function setOptionsAttribute(string $options): void
+	public function getOptionsAttribute($value)
 	{
-		$this->attributes['options'] = base64_encode($options);
+		$serialized = (string) $value;
+
+		if ($this->getConnection() instanceof PostgresConnection && ! Str::contains($serialized, [':', ';'])) {
+			$serialized = base64_decode($serialized);
+		}
+
+		try {
+			$options = unserialize($serialized, ['allowed_classes' => false]);
+		} catch (Throwable) {
+			return [];
+		}
+
+		return is_array($options) ? $this->withClassNames($options) : [];
 	}
 
 	/**
-	 * Get value of options attribute.
+	 * Replace the objects in the options (serialized closures and invokable callbacks) by their class name.
 	 */
-	public function getOptionsAttribute(): string
+	protected function withClassNames(array $options): array
 	{
-		return base64_decode($this->options);
+		return array_map(function ($value) {
+			if ($value instanceof \__PHP_Incomplete_Class) {
+				return ((array) $value)['__PHP_Incomplete_Class_Name'];
+			}
+
+			return is_array($value) ? $this->withClassNames($value) : $value;
+		}, $options);
 	}
 }
